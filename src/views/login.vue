@@ -16,7 +16,7 @@
 						    <input type="password" class="form-control mt-3" id="exampleInputPassword1" placeholder=" Enter your Password">
 						  </div>
 						  <div class="pt-5">
-						  	<router-link :to="{name:'checkin'}">
+						  	<router-link :to="{name:'dashboard'}">
 						  	<button type="button" class=" log btn btn-light"><small class="small">LOG IN</small></button>
 						  </router-link>
 						  	

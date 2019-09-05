@@ -32,12 +32,30 @@ export default new Router({
     },
 
     {
+      path: '/dashboard',
+      name: 'dashboard',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "dashboard" */ './views/dashboard.vue')
+    },
+
+    {
       path: '/checkin',
       name: 'checkin',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "checkin" */ './views/checkin.vue')
+    },
+
+     {
+      path: '/guest',
+      name: 'guest',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "guest" */ './views/guest.vue')
     }
   ]
 })
