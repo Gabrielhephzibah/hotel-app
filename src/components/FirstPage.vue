@@ -96,7 +96,7 @@ hr{
 
  }
 .wrapper{
-	height:300vh;
+	height:138vh;
 	/*border:1px solid red;*/
 }
 

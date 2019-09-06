@@ -56,6 +56,15 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "guest" */ './views/guest.vue')
+    },
+
+    {
+      path: '/checkout',
+      name: 'checkout',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "checkout" */ './views/checkout.vue')
     }
   ]
 })

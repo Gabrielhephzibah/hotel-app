@@ -58,8 +58,8 @@
 
 <style scoped>
 	.wrapper{
-		border:1px solid black;
-		height: 200vh;
+		/*border:1px solid red;*/
+		height: 124vh;
 		/*background-color: #131313;*/
 	}
 
@@ -106,7 +106,8 @@
 
 .second{
 	background-color: #131313;
-	height: 50vh;
+	height: 43vh;
+	/*border: 1px solid green;*/
 }
 
 .first{

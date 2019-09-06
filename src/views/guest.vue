@@ -19,7 +19,9 @@
 					      <td class="robert"style="vertical-align:middle;">Claire Robertjbjkkbdfnkbbxnks</td>
 					      <td>
 					      	<div class="img">
+					      		<router-link :to="{name:'checkout'}">
 					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      	</router-link>
 					      		
 					      	</div>
 					      </td>
@@ -42,6 +44,7 @@
 					      <td class="robert" style="vertical-align:middle;">Larrymnzn.kn.xzckh</td>
 					      <td>
 					      	<div class="img">
+
 					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
 					      		
 					      	</div>
@@ -60,7 +63,55 @@
 					      </td>
 					      <!-- <td>@twitter</td> -->
 					    </tr>
-					    					    <tr>
+					    <tr>
+					      <th scope="row">5</th>
+					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
+					      <td>
+					      	<div class="img">
+					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      		
+					      	</div>
+					      </td>
+					      <!-- <td>@twitter</td> -->
+					    </tr>
+
+					    <tr>
+					      <th scope="row">5</th>
+					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
+					      <td>
+					      	<div class="img">
+					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      		
+					      	</div>
+					      </td>
+					      <!-- <td>@twitter</td> -->
+					    </tr>
+
+					    <tr>
+					      <th scope="row">5</th>
+					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
+					      <td>
+					      	<div class="img">
+					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      		
+					      	</div>
+					      </td>
+					      <!-- <td>@twitter</td> -->
+					    </tr>
+
+					    <tr>
+					      <th scope="row">5</th>
+					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
+					      <td>
+					      	<div class="img">
+					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      		
+					      	</div>
+					      </td>
+					      <!-- <td>@twitter</td> -->
+					    </tr>
+
+					    <tr>
 					      <th scope="row">5</th>
 					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
 					      <td>
@@ -85,15 +136,15 @@
 </template>
 
 
-<style>
+<style scoped>
 	.wrapper{
-		border:1px solid red;
+		/*border:1px solid red;*/
 		height: 200vh;
 		background-color: #232121;
 	}
 
 	.text{
-		margin-top: 50px;
+		margin-top: 0px;
 		font-family: Eczar;
 		font-style: normal;
 		font-weight: bold;

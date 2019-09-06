@@ -3,6 +3,12 @@
 		<div class="row" style="max-width:1513px;">
 			<div class="col-7">
 				<div class="left">
+						<div class="great">
+							<router-link :to="{name:'dashboard'}">
+							<img src="../assets/great3.png">
+						</router-link>
+							
+						</div>
 					<div class="info pt">
 						<h3 class="fill">Please fill in your information</h3>
 						
@@ -29,21 +35,18 @@
 					            <option>Female</option>
 					          </select>
 					        </div>
-					    <!-- <div class="col">
-					    <label class="name">Sex &nbsp; &nbsp; &nbsp;&nbsp;</label>
-					      <input type="text" class="form-control mt-5" placeholder="First name">
-					    </div> -->
-					    <div class="col">
-					    <label class="name">Check-in time</label>
-					      <input type="text" class="form-control mt-5" placeholder="Last name">
-					    </div>
+					        <div class="col">
+					        <label class="name">Room number</label>
+					          <input type="text" class="form-control mt-5" placeholder="First name">
+					        </div>
+					  
 					  </div>
 
 					  <div class="form-row pt-5">
-					    <div class="col">
+					    <!-- <div class="col">
 					    <label class="name">Room number</label>
 					      <input type="text" class="form-control mt-5" placeholder="First name">
-					    </div>
+					    </div> -->
 
 					    <div class="form-group col">
 					          <label class="name">Room type</label>
@@ -54,18 +57,21 @@
 					            <option>Executive</option>
 					          </select>
 					        </div>
-					   <!--  <div class="col">
-					    <label class="name">Room type</label>
-					      <input type="text" class="form-control mt-5" placeholder="Last name">
-					    </div> -->
+
+					        <div class="form-group col">
+					          <label class="name">Purpose for Stay</label>
+					          <select id="inputState" class="form-control mt-5">
+					            <option selected>Choose...</option>
+					            <option>Buisiness</option>
+					            <option>Occasion</option>
+					            <option>Tour</option>
+					          </select>
+					        </div>
+					   
 					  </div>
 
-					  <div class="form-row pt-5">
-					    <div class="col">
-					    <label class="name">Advance payment</label>
-					      <input type="text" class="form-control mt-5" placeholder="First name">
-					    </div>
-
+					 <!--  <div class="form-row pt-5">
+					    
 
 
 					     <div class="form-group col">
@@ -76,7 +82,7 @@
 					            <option>Occasion</option>
 					            <option>Tour</option>
 					          </select>
-					        </div>
+					        </div> -->
 
 
 
@@ -84,7 +90,7 @@
 					    <label class="name">Purpose for Stay</label>
 					      <input type="text" class="form-control mt-5" placeholder="Last name">
 					    </div> -->
-					  </div>
+					  <!-- </div> -->
 
 					  	<div class="pt-5">
 						  	<!-- <router-link :to="{name:'dashboard'}"> -->
@@ -128,20 +134,20 @@
 
 
 	.wrapper{
-		border: 1px solid black;
-		height: 150vh;
+		/*border: 1px solid black;*/
+		height: 98vh;
 	}
 
 	.left{
 		/*border: 1px solid blue;*/
-		height: 130vh;
+		height: 98vh;
 		background-color: #EEF1F6;
 		padding-top: 
 	}
 
 	.right{
 		/*border: 1px solid red;*/
-		height: 130vh;
+		height: 98vh;
 
 
 	}
@@ -250,7 +256,11 @@
 		margin-top: 20px;
 
 	}
-
+	.great{
+		float: left;
+		margin-top: 20px;
+		    margin-left:8px;
+	}
 
 	
 </style>
