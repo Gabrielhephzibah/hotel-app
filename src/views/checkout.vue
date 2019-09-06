@@ -3,95 +3,59 @@
 		<div class="row" style="max-width:1513px;">
 			<div class="col-8">
 				<div class="left">
-					<div class="head">
+					<div  class="head" >
 						<h5 class="slip">Guest Check-out Slip</h5>
 						
 					</div>
 
-					<div class="inside">
+					<div v-if="guest" class="inside">
 						<hr>
 						<div class="first">
-							<h5 class="clay">First name <span>Claire</span></h5>
+							<h5 class="clay">First name <span>{{guest.first_name}}</span></h5>
 							
 						</div>
 						<hr>
 						<div class="first">
-							<h5 class="clay">Last name <span>Robert</span></h5>
-							
-						</div>
-						<hr>
-
-						<div class="first">
-							<h5 class="clay">Sex <span>Female</span></h5>
+							<h5 class="clay">Last name <span>{{guest.last_name}}</span></h5>
 							
 						</div>
 						<hr>
 
 						<div class="first">
-							<h5 class="clay">Room number</rp> <span>RM 33</span></h5>
-							
-						</div>
-						<hr>
-						<div class="first">
-							<h5 class="clay">Room type<span>Royalty</span></h5>
-							
-						</div>
-						<hr>
-						<div class="first">
-							<h5 class="clay">Purpose for stay<span>Buisiness</span></h5>
-							
-						</div>
-						<hr>
-						<div class="first">
-							<h5 class="clay">Check-in-time <span>8:00pm</span></h5>
-						</div>
-						<hr>
-						<div class="first">
-							<h5 class="clay">Check-Out-time <span>9:00pm</span></h5>
-							
-						</div>
-						<hr>
-						<div class="first">
-							<h5 class="final clay">Final Bill <span>$3000</span></h5>
+							<h5 class="clay">Sex <span>{{guest.sex}}</span></h5>
 							
 						</div>
 						<hr>
 
-
-
-
-						<!-- <table class=" table1 table">
-						  <thead>
-						    <tr>
-						      <th scope="col">#</th>
-						      <th scope="col">First</th>
-						      <th scope="col">Last</th>
-						      <th scope="col">Handle</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <th scope="row">1</th>
-						      <td>Mark</td>
-						      <td>Otto</td>
-						      <td>@mdo</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">2</th>
-						      <td>Jacob</td>
-						      <td>Thornton</td>
-						      <td>@fat</td>
-						    </tr>
-						    <tr>
-						      <th scope="row">3</th>
-						      <td>Larry</td>
-						      <td>the Bird</td>
-						      <td>@twitter</td>
-						    </tr>
-						  </tbody>
-						</table> -->
-
-						
+						<div class="first">
+							<h5 class="clay">Room number</rp> <span>{{guest.room_number}}</span></h5>
+							
+						</div>
+						<hr>
+						<div class="first">
+							<h5 class="clay">Room type<span>{{guest.room_type}}</span></h5>
+							
+						</div>
+						<hr>
+						<div class="first">
+							<h5 class="clay">Purpose for stay<span>{{guest.purpose_for_stay}}</span></h5>
+							
+						</div>
+						<hr>
+						<div class="first">
+							<h5 class="clay">Check-in-time <span>{{guest.check_in_time | sexyDate}}</span></h5>
+						</div>
+						<hr>
+						<div class="first">
+							<h5 class="clay">Check-Out-time <span>{{guest.check_out_time | sexyDate}}</span></h5>
+							
+						</div>
+						<hr>
+						<div class="first">
+							<h5 class="final clay">Final Bill <span>${{guest.final_bill}}</span></h5>
+							
+						</div>
+						<hr>
 					</div>
 					
 				</div>
@@ -100,7 +64,7 @@
 
 			<div class="col-4">
 				<div class="right">
-					<img class="arrow" src="../assets/arrow.png">
+					<img class="arrow" src="../assets/arrow.png" @click="PrintWindow">
 					
 				</div>
 				
@@ -111,6 +75,55 @@
 	</div>
 	
 </template>
+	
+	<script>
+  export default{
+    name:'home',
+    props: ['id'],
+    data() {
+      return{
+        apiResponse:{},
+        guest: {},
+        error:{}
+
+      }
+    },
+
+    methods:{
+    	PrintWindow: function() {
+    		this.$nextTick(() => {
+    		    window.print();
+    		  });
+    	}
+    },
+
+    components:{},
+    mounted() {
+      let id = this.$route.params.id
+      // console.log(this)
+      this.$http.get('http://localhost:5000/hotel/single/'+id)
+
+      .then(response =>{
+        console.log(response)
+        this.guest = response.data
+      //   console.log(this.guest)
+      })
+    },
+
+  	filters: {
+  		sexyDate: function (val) {
+  			return new Date(val).toGMTString()
+  		}
+  	}
+
+  };
+
+
+
+  
+  
+  </script>
+
 
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-light d-flex justify-content-center">
+	<nav class="navbar navbar-light d-flex justify-content-center" style="max-width:1513px">
 		<router-link :to="{name:'home'}">
   <a style="margin-top:-24px;" class="navbar-brand" href="#">
     <img src="../assets/logo2.png"  alt="">

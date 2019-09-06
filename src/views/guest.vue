@@ -8,121 +8,29 @@
 					  <thead>
 					    <tr>
 					      <th scope="col" style="vertical-align:middle;">#</th>
-					      <th scope="col" style="vertical-align:middle;">Guest</th>
-					      <th scope="col" style="vertical-align:middle;"></th>
-					      <!-- <th style="vertical-align:middle;" scope="col">Handle</th> -->
+					      <th scope="col" style="vertical-align:middle;">First name</th>
+					      <th scope="col" style="vertical-align:middle;">Last name</th>
+					      <th style="vertical-align:middle;" scope="col"></th>
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td class="robert"style="vertical-align:middle;">Claire Robertjbjkkbdfnkbbxnks</td>
+					    <tr v-for="(guest,hephzibah) in guests">
+					      <th scope="row">{{ hephzibah + 1 }}</th>
+					      <td class="robert"style="vertical-align:middle;">{{ guest.first_name }}</td>
+					       <td class="robert"style="vertical-align:middle;">{{guest.last_name}}</td>
 					      <td>
 					      	<div class="img">
-					      		<router-link :to="{name:'checkout'}">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      	</router-link>
+					      		<!-- <router-link :to="{name:'checkout', params:{id:guest._id}}"> -->
+					      		<a @click.prevent="checkOut(guest)" href="#">
+					      			<img src="../assets/checkarrow2.png" alt="checkinihh">
+					      		</a>
+					      		<!-- </router-link> -->
 					      		
 					      	</div>
 					      </td>
 					      <!-- <td>@mdo</td> -->
 					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td class="robert" style="vertical-align:middle;">Jacobjhkkjjk jkjlhklkzlnk</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      	
-					      </td>
-					      <!-- <td>@fat</td> -->
-					    </tr>
-					    <tr>
-					      <th scope="row">3</th>
-					      <td class="robert" style="vertical-align:middle;">Larrymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-					    
-					    					    <tr>
-					      <th scope="row">4</th>
-					      <td class="robert" style="vertical-align:middle;">hgfhgrrymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-					    <tr>
-					      <th scope="row">5</th>
-					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-
-					    <tr>
-					      <th scope="row">5</th>
-					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-
-					    <tr>
-					      <th scope="row">5</th>
-					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-
-					    <tr>
-					      <th scope="row">5</th>
-					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-
-					    <tr>
-					      <th scope="row">5</th>
-					      <td class="robert" style="vertical-align:middle;">mnvkjjgcymnzn.kn.xzckh</td>
-					      <td>
-					      	<div class="img">
-					      		<img src="../assets/checkarrow2.png" alt="checkinihh">
-					      		
-					      	</div>
-					      </td>
-					      <!-- <td>@twitter</td> -->
-					    </tr>
-					  </tbody>
+					   </tbody>
 					</table>
 					
 				</div>
@@ -134,6 +42,58 @@
 	</div>
 	
 </template>
+
+
+<script>
+export default{
+  name:'home',
+  data() {
+    return{
+      apiResponse:{},
+      guests:[],
+      error:{},
+      formdata: {}
+    };
+  },
+  mounted() {
+    this.$http.get('http://localhost:5000/hotel')
+    .then(response =>{
+      // console.log(response)
+      this.guests = response.data
+      console.log(this.guest)
+    })
+  },
+  methods:{
+  	checkOut: function(guest){
+  		let amountPerMin = 10;
+  		let checkInTime = new Date(guest.check_in_time)
+  		let checkOutTime = new Date();
+
+  		let totalMinsSpentInMilisecs = checkOutTime - checkInTime
+
+  		let totalMinsSpentInMins = Math.round(((totalMinsSpentInMilisecs % 86400000) % 3600000) / 60000); // minutes
+
+  		let finalBill = amountPerMin * totalMinsSpentInMins
+
+  		this.formdata.check_out_time = checkOutTime
+  		this.formdata.final_bill = finalBill
+  		this.formdata.has_checked_out = true
+
+  		this.$http.put('http://localhost:5000/hotel/update/'+guest._id, this.formdata)
+  			.then(response=>{
+  				this.$router.push({name: 'checkout', params: {id: guest._id} })
+  			})
+  			.catch(error=>{
+  				console.log(error)
+  			})
+  	}
+  }
+};
+
+
+
+</script>
+
 
 
 <style scoped>

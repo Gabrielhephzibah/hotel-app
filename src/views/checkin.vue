@@ -13,44 +13,45 @@
 						<h3 class="fill">Please fill in your information</h3>
 						
 					</div>
-					<form class="form1">
+					<form class="form1" @submit.prevent="add">
 					  <div class="form-row">
-					    <div class="col">
+					    <div class="col-6">
 					    <label class="name">First name</label>
-					      <input type="text" class="form-control mt-5" placeholder="First name">
+					      <input type="text" v-model="guest.first_name"  class="form-control mt-5" placeholder="First name">
 					    </div>
-					    <div class="col">
+					    <div class="col-6">
 					    <label class="name">Last name</label>
-					      <input type="text" class="form-control mt-5" placeholder="Last name">
+					      <input type="text" v-model="guest.last_name" class="form-control mt-5" placeholder="Last name">
 					    </div>
 					  </div>
 
 					  <div class="form-row pt-5">
 
-					  	 <div class="form-group col">
+					  	 <div class="form-group col-6">
 					          <label class="name">Sex &nbsp; &nbsp; &nbsp;&nbsp;</label>
-					          <select id="inputState" class="form-control mt-5">
+					          <select id="inputState" v-model="guest.sex" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Male</option>
 					            <option>Female</option>
 					          </select>
 					        </div>
-					        <div class="col">
+					        <div class="col-6">
 					        <label class="name">Room number</label>
-					          <input type="text" class="form-control mt-5" placeholder="First name">
+					          <input type="text" v-model="guest.room_number" class="form-control mt-5" placeholder="First name">
 					        </div>
 					  
 					  </div>
 
-					  <div class="form-row pt-5">
-					    <!-- <div class="col">
+					  <!-- <div class="form-row pt-5">
+					    <div class="col-6">
 					    <label class="name">Room number</label>
 					      <input type="text" class="form-control mt-5" placeholder="First name">
 					    </div> -->
 
-					    <div class="form-group col">
+					    <div class="form-row pt-5">
+					    <div class="form-group col-6">
 					          <label class="name">Room type</label>
-					          <select id="inputState" class="form-control mt-5">
+					          <select id="inputState" v-model="guest.room_type" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>classic</option>
 					            <option>royalty</option>
@@ -58,9 +59,9 @@
 					          </select>
 					        </div>
 
-					        <div class="form-group col">
+					        <div class="form-group col-6">
 					          <label class="name">Purpose for Stay</label>
-					          <select id="inputState" class="form-control mt-5">
+					          <select id="inputState" v-model="guest.Purpose_for_stay" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Buisiness</option>
 					            <option>Occasion</option>
@@ -94,7 +95,7 @@
 
 					  	<div class="pt-5">
 						  	<!-- <router-link :to="{name:'dashboard'}"> -->
-						  	<button type="button" class=" log btn btn-light"><small class="small">ADD TO GUESTS</small></button>
+						  	<button type="submit" class=" log btn btn-light"><small class="small">ADD TO GUESTS</small></button>
 						  <!-- </router-link> -->
 						  	
 						  </div>
@@ -125,6 +126,50 @@
 	
 </template>
 
+	<script>
+  export default{
+    name:'home',
+    data() {
+      return{
+        apiResponse:{},
+        guest: {
+        	first_name:"",
+        	last_name:"",
+        	sex:"",
+        	room_number:"",
+        	room_type:"",
+        	Purpose_for_stay:""
+        },
+        error:{}
+
+      }
+    },
+
+    components:{},
+    mounted() {},
+     methods:{
+      add:function(){
+  		console.log(this.guest)
+       	 this.$http.post('http://localhost:5000/hotel/add',this.guest)
+      	.then(response=>{
+	      console.log(response)
+	      this.guest= response.data
+	      console.log(this.guest)
+
+    	})
+  
+      }
+    }
+  };
+
+  
+  
+  </script>
+
+
+
+
+
 
 <style scoped>
 	label{
@@ -153,7 +198,7 @@
 	}
 
 	input {
-		width: 370px;
+		width: 300px;
 		margin-left: 20px;
 		height: 55px;
 
@@ -161,7 +206,7 @@
 	}
 
 	select{
-		width: 370px;
+		width: 300px;
 		margin-left: 20px;
 		height: 55px;
 

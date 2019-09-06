@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<div class="row"style="max-width:1513px;" >
+		<div class="row"style="max-width:1500px;" >
 			<div class="col-12">
 				<div class="firstRow">
 					<img class="img1" src="../assets/firstimg3.png" alt="hmm">

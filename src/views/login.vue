@@ -4,20 +4,20 @@
 			<div class="col-12">
 				<div class="inside d-flex justify-content-center">
 					<div class="box">
-						<form >
+						<form  @ subbmit.prevent="login">
 						  <div class="form-group">
 						    <label class="text1">Name</label>
 						    
-						    <input type="name" class="form-control mt-3" id="name" aria-describedby="name" placeholder="Enter your name">
+						    <input type="name" v-model="guest.name" class="form-control mt-3" id="name" aria-describedby="name" placeholder="Enter your name">
 				
 						  </div>
 						  <div class="form-group pt-4">
 						    <label class="text1" for="exampleInputPassword1">Password</label>
-						    <input type="password" class="form-control mt-3" id="exampleInputPassword1" placeholder=" Enter your Password">
+						    <input type="password" v-model="guest.password" class="form-control mt-3" id="exampleInputPassword1" placeholder=" Enter your Password">
 						  </div>
 						  <div class="pt-5">
 						  	<router-link :to="{name:'dashboard'}">
-						  	<button type="button" class=" log btn btn-light"><small class="small">LOG IN</small></button>
+						  	<button type="submit" class=" log btn btn-light"><small class="small">LOG IN</small></button>
 						  </router-link>
 						  	
 						  </div>
@@ -37,6 +37,40 @@
 	
 </template>
 
+<script>
+  export default{
+    name:'home',
+    data() {
+      return{
+        apiResponse:{},
+        guest:{
+        	name: "",
+        	password: ""
+        },
+        error:{}
+
+      }
+    },
+
+    components:{},
+    mounted() {},
+
+  methods:{
+  	login:function() {
+  		this.$http.post('http://localhost:5000/user/login')
+      .then(response =>{
+        console.log(response)
+        this.guest = response.data
+        console.log(this.guest)
+      })
+    }
+
+  	}
+  }
+
+  
+  
+  </script>
 
 
 <style scoped>
