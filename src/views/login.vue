@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<div class="row"style="max-width:1513px;">
+		<div class="row"style="max-width:1200px;">
 			<div class="col-12">
 				<div class="inside d-flex justify-content-center">
 					<div class="box">
@@ -66,7 +66,7 @@
     }
 
   	}
-  }
+  };
 
   
   
@@ -102,13 +102,14 @@
 		margin-top: 145px;
 		background: #EEF1F6;
 		border-radius: 41px;
+		margin-left: 200px;
 	}
 
 	.text1{
 		font-family: Lato;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 24px;
+		font-size: 23px;
 		line-height: 29px;
 		/* identical to box height */
 

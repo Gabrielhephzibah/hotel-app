@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<div class="row" style="max-width:1513px;">
+		<div class="row" style="max-width:1200px;">
 			<div class="col-8">
 				<div class="left">
 					<div  class="head" >
@@ -43,11 +43,11 @@
 						</div>
 						<hr>
 						<div class="first">
-							<h5 class="clay">Check-in-time <span>{{guest.check_in_time | sexyDate}}</span></h5>
+							<h5 class="clay">Check-in-time <span>{{guest.check_in_time | fineDate}}</span></h5>
 						</div>
 						<hr>
 						<div class="first">
-							<h5 class="clay">Check-Out-time <span>{{guest.check_out_time | sexyDate}}</span></h5>
+							<h5 class="clay">Check-Out-time <span>{{guest.check_out_time | fineDate}}</span></h5>
 							
 						</div>
 						<hr>
@@ -111,7 +111,7 @@
     },
 
   	filters: {
-  		sexyDate: function (val) {
+  		fineDate: function (val) {
   			return new Date(val).toGMTString()
   		}
   	}
@@ -137,18 +137,20 @@
 
 	span{
 		float: right;
+		/*vertical-align: right;*/
 		margin-right: 67px;
 	}
 
 	.wrapper{
 		/*border: 1px solid green;*/
-		height: 110vh;
+		height: 120vh;
 		background-color:#EEF1F6;
 	}
 
 	.left{
 		height: 94vh;
 		/*border: 1px solid red;*/
+		margin-left: 23px;
 
 	}
 
@@ -158,9 +160,9 @@
 	}
 
 	.inside{
-		height: 94vh;
+		height: 100vh;
 		/*border: 1px solid black;*/
-		width: 123vh;
+		/*width: 123vh;*/
 		margin: auto;
 		padding-top: 41px;
 		background-color: #FDFCFA;
@@ -219,6 +221,7 @@
 
 	.arrow{
 		padding-top: 322px;
+		margin-left: 320px;
 	}
 
 	

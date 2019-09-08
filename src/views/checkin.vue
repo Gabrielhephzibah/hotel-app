@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<div class="row" style="max-width:1513px;">
+		<div class="row" style="max-width:1200px;">
 			<div class="col-7">
 				<div class="left">
 						<div class="great">
@@ -37,7 +37,7 @@
 					        </div>
 					        <div class="col-6">
 					        <label class="name">Room number</label>
-					          <input type="text" v-model="guest.room_number" class="form-control mt-5" placeholder="First name">
+					          <input type="text" v-model="guest.room_number" class="form-control mt-5" placeholder="Room number">
 					        </div>
 					  
 					  </div>
@@ -53,19 +53,23 @@
 					          <label class="name">Room type</label>
 					          <select id="inputState" v-model="guest.room_type" class="form-control mt-5">
 					            <option selected>Choose...</option>
-					            <option>classic</option>
-					            <option>royalty</option>
-					            <option>Executive</option>
+					            <option>Single</option>
+					            <option>Double</option>
+					            <option>Triple</option>
+					             <option>Queen</option>
+					              <option>King</option>
+					              <option>Twin</option>
+					              <option>Double-Double</option>
 					          </select>
 					        </div>
 
 					        <div class="form-group col-6">
 					          <label class="name">Purpose for Stay</label>
-					          <select id="inputState" v-model="guest.Purpose_for_stay" class="form-control mt-5">
+					          <select id="inputState" v-model="guest.purpose_for_stay" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Buisiness</option>
-					            <option>Occasion</option>
-					            <option>Tour</option>
+					            <option>Vacation</option>
+					            <option>Others</option>
 					          </select>
 					        </div>
 					   
@@ -138,7 +142,7 @@
         	sex:"",
         	room_number:"",
         	room_type:"",
-        	Purpose_for_stay:""
+        	purpose_for_stay:""
         },
         error:{}
 
@@ -180,12 +184,12 @@
 
 	.wrapper{
 		/*border: 1px solid black;*/
-		height: 98vh;
+		height: 113vh;
 	}
 
 	.left{
 		/*border: 1px solid blue;*/
-		height: 98vh;
+		height: 113vh;
 		background-color: #EEF1F6;
 		padding-top: 
 	}

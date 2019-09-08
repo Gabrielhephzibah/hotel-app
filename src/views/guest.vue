@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<div class="guest">
 			<h5 class="text">GUEST LIST</h5>
-			<div class="row"style="max-width:1513px;" >
+			<div class="row"style="max-width:1363px;" >
 				<div class="col-12">
 					<table class=" table1 table table-dark">
 					  <thead>

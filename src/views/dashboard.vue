@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<div class="row" style="max-width:1513px;">
+		<div class="row" style="max-width:1364px;">
 			<div class="col-8">
 				<div class="leftImg">
 					<img class="img1" src="../assets/night2.png" alt="you">
@@ -23,7 +23,7 @@
 
 
 		<div class="second">
-			<div class="row "style="max-width:1513px;">
+			<div class="row "style="max-width:1200px;">
 				<div class="col-6">
 					<div class="first d-flex justify-content-left">
 						<router-link :to="{name:'checkin'}">
@@ -106,7 +106,7 @@
 
 .second{
 	background-color: #131313;
-	height: 43vh;
+	height: 49vh;
 	/*border: 1px solid green;*/
 }
 
@@ -122,7 +122,7 @@
 	height: 15vh;
 	margin-top: 100px;
 	float:right;
-	margin-right: 70px;
+	margin-right: -98px;
 
 }
 .guest{

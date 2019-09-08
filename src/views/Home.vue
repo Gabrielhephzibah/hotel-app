@@ -14,5 +14,5 @@ export default {
   components: {
     FirstPage
   }
-}
+};
 </script>
