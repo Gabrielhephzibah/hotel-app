@@ -4,7 +4,7 @@
 			<div class="col-7">
 				<div class="left">
 						<div class="great">
-							<router-link :to="{name:'dashboard'}">
+							<router-link :to="{name:'guest'}">
 							<img src="../assets/great3.png">
 						</router-link>
 							
@@ -17,11 +17,11 @@
 					  <div class="form-row">
 					    <div class="col-6">
 					    <label class="name">First name</label>
-					      <input type="text" v-model="guest.first_name"  class="form-control mt-5" placeholder="First name">
+					      <input type="text" v-model="newGuest.first_name"  class="form-control mt-5" placeholder="First name">
 					    </div>
 					    <div class="col-6">
 					    <label class="name">Last name</label>
-					      <input type="text" v-model="guest.last_name" class="form-control mt-5" placeholder="Last name">
+					      <input type="text" v-model="newGuest.last_name" class="form-control mt-5" placeholder="Last name">
 					    </div>
 					  </div>
 
@@ -29,7 +29,7 @@
 
 					  	 <div class="form-group col-6">
 					          <label class="name">Sex &nbsp; &nbsp; &nbsp;&nbsp;</label>
-					          <select id="inputState" v-model="guest.sex" class="form-control mt-5">
+					          <select id="inputState" v-model="newGuest.sex" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Male</option>
 					            <option>Female</option>
@@ -37,7 +37,7 @@
 					        </div>
 					        <div class="col-6">
 					        <label class="name">Room number</label>
-					          <input type="text" v-model="guest.room_number" class="form-control mt-5" placeholder="Room number">
+					          <input type="text" v-model="newGuest.room_number" class="form-control mt-5" placeholder="Room number">
 					        </div>
 					  
 					  </div>
@@ -51,7 +51,7 @@
 					    <div class="form-row pt-5">
 					    <div class="form-group col-6">
 					          <label class="name">Room type</label>
-					          <select id="inputState" v-model="guest.room_type" class="form-control mt-5">
+					          <select id="inputState" v-model="newGuest.room_type" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Single</option>
 					            <option>Double</option>
@@ -65,7 +65,7 @@
 
 					        <div class="form-group col-6">
 					          <label class="name">Purpose for Stay</label>
-					          <select id="inputState" v-model="guest.purpose_for_stay" class="form-control mt-5">
+					          <select id="inputState" v-model="newGuest.purpose_for_stay" class="form-control mt-5">
 					            <option selected>Choose...</option>
 					            <option>Buisiness</option>
 					            <option>Vacation</option>
@@ -136,7 +136,7 @@
     data() {
       return{
         apiResponse:{},
-        guest: {
+        newGuest: {
         	first_name:"",
         	last_name:"",
         	sex:"",
@@ -144,26 +144,44 @@
         	room_type:"",
         	purpose_for_stay:""
         },
+
         error:{}
 
       }
+
     },
 
     components:{},
+   
     mounted() {},
      methods:{
       add:function(){
-  		console.log(this.guest)
-       	 this.$http.post('http://localhost:5000/hotel/add',this.guest)
+  		console.log(this.newGuest)
+       	 this.$http.post('http://localhost:5000/hotel/add',this.newGuest)
       	.then(response=>{
 	      console.log(response)
-	      this.guest= response.data
-	      console.log(this.guest)
+	      this.newGuest= response.data
+	      // console.log(this.guest)
+      		this.newGuest.first_name =""
+      		this.newGuest.last_name =""
+      		this.newGuest.sex = ""
+      		this.newGuest.room_number = ""
+      		this.newGuest.room_type = ""
+      		this.newGuest.purpose_for_stay = ""
+
+    	alert('New Guest Successfully Added') 
+
 
     	})
+
+    	
+
   
-      }
+      },
+
+
     }
+
   };
 
   

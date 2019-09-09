@@ -4,7 +4,7 @@
 			<div class="col-12">
 				<div class="inside d-flex justify-content-center">
 					<div class="box">
-						<form  @ subbmit.prevent="login">
+						<form  @submit.prevent="login">
 						  <div class="form-group">
 						    <label class="text1">Name</label>
 						    
@@ -12,13 +12,13 @@
 				
 						  </div>
 						  <div class="form-group pt-4">
-						    <label class="text1" for="exampleInputPassword1">Password</label>
-						    <input type="password" v-model="guest.password" class="form-control mt-3" id="exampleInputPassword1" placeholder=" Enter your Password">
+						    <label class="text1">Password</label>
+						    <input type="password" v-model="guest.password" class="form-control mt-3" placeholder=" Enter your Password">
 						  </div>
 						  <div class="pt-5">
-						  	<router-link :to="{name:'dashboard'}">
+						  	<!-- <router-link :to="{name:'dashboard'}"> -->
 						  	<button type="submit" class=" log btn btn-light"><small class="small">LOG IN</small></button>
-						  </router-link>
+						  <!-- </router-link> -->
 						  	
 						  </div>
 						  
@@ -57,11 +57,15 @@
 
   methods:{
   	login:function() {
-  		this.$http.post('http://localhost:5000/user/login')
+  		this.$http.post('http://localhost:5000/user/login',{
+  			name:this.guest.name,
+  			password:this.guest.password
+  		})
       .then(response =>{
         console.log(response)
-        this.guest = response.data
+        // this.guest = response.data
         console.log(this.guest)
+        this.$router.push("/dashboard")
       })
     }
 
